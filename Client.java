@@ -7,9 +7,9 @@ public class Client extends Personne {
 
    
    
-    public Client(String nom,String prenom, String num ,String adresse ,Magasin magasin) {
-     super(nom,prenom,num,adresse);
-     this.magasin =magasin;
+    public Client(String nom, String prenom, String num, String adresse, Magasin magasin) {
+     super(nom, prenom, num, adresse);
+     this.magasin = magasin;
     }
 
     
