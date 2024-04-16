@@ -6,7 +6,8 @@ import java.util.*;
 
 public class Personne {
 
-   
+    public Personne(){}
+    
     public Personne(String nom ,String prenom,String num,String adresse){
        this.nom = nom;
        this.prenom = prenom;
