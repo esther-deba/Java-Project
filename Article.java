@@ -17,5 +17,13 @@ public class Article {
     public Vector<LigneStock> listStock = new Vector<LigneStock>();
     public Vector<LigneCommande> listLigneCmd = new Vector<LigneCommande>();
 
+    public void ajouteLigneCommande (LigneCommande ligneCommande){
+        listLigneCmd.add(ligneCommande);
+    }
+
+    public void ajouteLigneStock(LigneStock ligneStock){
+        listStock.add(ligneStock);
+    }
+
 
 }
