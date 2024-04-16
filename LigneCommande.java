@@ -3,6 +3,7 @@ import java.util.*;
 
 
 public class LigneCommande {
+    public LigneCommande(){}
 
     public LigneCommande(int qte, Commande commande, Article article) {
         this.qte = qte;
@@ -13,5 +14,9 @@ public class LigneCommande {
     public int qte;
     public Commande commande;
     public Article article;
+
+    public double getPrice(){
+        return qte*article.prix;
+    }
 
 }
