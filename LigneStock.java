@@ -8,7 +8,7 @@ public class LigneStock {
         this.depot = depot;
         this.article = article;
     }
-
+    
     public int qte;
     public Depot depot;
     public Article article;
