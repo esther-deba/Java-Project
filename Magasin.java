@@ -42,7 +42,7 @@ public class Magasin {
     public LigneStock rechercherLigneStock(String nom){
         for(int i=0; i<depots.size(); i++){
             for(int j=0; j<depots.get(i).listLigneStock.size(); j++){
-                if(depots.get(i).listLigneStock.get(i).article.nom.equals(nom)){
+                if(depots.get(i).listLigneStock.get(j).article.nom.equals(nom)){
                     return depots.get(i).listLigneStock.get(j);
                 }
             }
@@ -88,7 +88,7 @@ public class Magasin {
         Vector<Article> lesArticles = new Vector<Article>();
         for(int i=0; i<listClients.size();i++){
             Vector<Article> v = listClients.get(i).listesArticleCommandesClient();
-            for(int j=0; i<v.size();j++){
+            for(int j=0; j<v.size();j++){
                 if(!(lesArticles.contains(v.get(j)))){
                     lesArticles.add(v.get(j));
                 }
