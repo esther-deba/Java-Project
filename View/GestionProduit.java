@@ -111,6 +111,8 @@ public class GestionProduit extends JFrame{
 	      tabJTF[0] = nomTF;
 	      tabJTF[1] = prixTF;
 	      tabJTF[2] = qteTF;
+
+							//LISTENER
 	      
 	  }
 	  }

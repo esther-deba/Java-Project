@@ -3,8 +3,8 @@ package Model;
 import java.io.*;
 import java.util.*;
 
-//OBSERVABLE
-public class Magasin {
+
+public class Magasin extends Observable{
 
     public Magasin(String nom ) {
         this.nom = nom ;
@@ -18,22 +18,26 @@ public class Magasin {
 
     public void ajouteClient(Client client){
         listClients.add(client);
-        //OBSERVABLE
+        this.setChanged();
+        this.notifyObservers(client);
     }
 
     public void supprimerClient(Client client){
         listClients.removeIf(element -> (element.nom.equals(client.nom) && element.prenom.equals(client.prenom)));
-        //OBSERVABLE
+        this.setChanged();
+        this.notifyObservers(client);
     }
 
     public void ajouteVendeur(Vendeur vendeur){
         listVendeurs.add(vendeur);
-        //OBSERVABLE
+        this.setChanged();
+        this.notifyObservers(vendeur);
     }
 
     public void supprimerVendeur(Vendeur vendeur){
         listClients.removeIf(element -> element.nom.equals(vendeur.nom) && element.prenom.equals((vendeur.prenom)));
-        //OBSERVABLE
+        this.setChanged();
+        this.notifyObservers(vendeur);
     }
 
     public void ajouteStock(Depot depot){
