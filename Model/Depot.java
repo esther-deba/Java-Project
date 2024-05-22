@@ -2,8 +2,8 @@ package Model;
 
 import java.io.*;
 import java.util.*;
-//OBSERVABLE
-public class Depot {
+
+public class Depot extends Observable{
 
     public Depot(Magasin magasin, String adresse ) {
         this.magasin = magasin;
@@ -17,12 +17,14 @@ public class Depot {
 
     public void ajouteLigneStock(LigneStock ligneStock){
         listLigneStock.add(ligneStock);
-        //OBSERVABLE
+        this.setChanged();
+        this.notifyObservers(ligneStock);
     }
 
     public void supprimerLigneStock(LigneStock ligneStock){
         listLigneStock.removeIf(element -> element.article.nom == ligneStock.article.nom);
-        //OBSERVABLE
+        this.setChanged();
+        this.notifyObservers(ligneStock);
     }
 
     public LigneStock rechercherLigneStock(String nom){
