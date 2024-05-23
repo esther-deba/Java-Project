@@ -33,7 +33,8 @@ public class GestionVendeur extends JFrame{
 	  public GestionVendeur(Magasin m) {
 		  this.setTitle("Gestion de Vendeurs");
 		  this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		  this.setPreferredSize(new Dimension(750,250));
+		  this.setPreferredSize(new Dimension(750,350));
+		  this.setResizable(false);
 		  
 		  magasin =m;
 		  
@@ -109,11 +110,7 @@ public class GestionVendeur extends JFrame{
 	        //LISTERNER
 	        
 	        this.setVisible(true);
-		  
-		  
-		  
-		  
-		  
+									this.pack();
 		  
 	  }
 	  

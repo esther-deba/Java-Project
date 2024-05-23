@@ -32,7 +32,8 @@ public class GestionProduit extends JFrame{
 	  public GestionProduit(Depot d) {
 		  this.setTitle("Gestion de produits");
 		  this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		  this.setPreferredSize(new Dimension(750,250));
+		  this.setPreferredSize(new Dimension(750,350));
+		  this.setResizable(false);
 		  
 		  
 		  depot = d;
@@ -117,7 +118,6 @@ public class GestionProduit extends JFrame{
 	      
 	      
 	      this.setVisible(true);
-	      
-							//LISTENER
+	      this.pack();
 	  }
 	  }

@@ -41,7 +41,8 @@ public class GestionClient extends JFrame{
 	  public GestionClient(Magasin m) {
 		  this.setTitle("Gestion de clients");
 		  this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		  this.setPreferredSize(new Dimension(750,250));
+		  this.setPreferredSize(new Dimension(750,350));
+		  this.setResizable(false);
 		  
 		  magasin = m;
 		  
@@ -116,5 +117,6 @@ public class GestionClient extends JFrame{
 	        //LISTERNER
 	        
 	        this.setVisible(true);
+	        this.pack();
 	  }
 }
