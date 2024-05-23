@@ -30,7 +30,7 @@ public class GestionClient extends JFrame{
 	  JTextField adresseTF = new JTextField("",10);
 	  JPanel nordPanel = new JPanel();
 	  JPanel westPanel = new JPanel();
-	  JPanel centerPanel = new JPanel();
+	  
 	 
 	  JButton ajoutP = new JButton("Ajouter");
 	  JButton suppP = new JButton("Supprimer");
@@ -38,11 +38,12 @@ public class GestionClient extends JFrame{
 	  Magasin magasin;
 	  Vector<Client> listeClients = new Vector<Client>();
 	  
-	  public GestionClient() {
+	  public GestionClient(Magasin m) {
 		  this.setTitle("Gestion de clients");
 		  this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		  this.setPreferredSize(new Dimension(750,250));
-		  this.setResizable(false);
+		  
+		  magasin = m;
 		  
 		  getContentPane().setLayout(new BorderLayout());
 		  titre.setHorizontalAlignment(SwingConstants.CENTER);
@@ -113,5 +114,7 @@ public class GestionClient extends JFrame{
 	        tabJTF[2] = numTF;
 	        
 	        //LISTERNER
+	        
+	        this.setVisible(true);
 	  }
-  }
+}

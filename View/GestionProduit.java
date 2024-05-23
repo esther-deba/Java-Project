@@ -5,7 +5,6 @@ import java.util.Vector;
 
 import javax.swing.*;
 
-
 import Model.Depot;
 import Model.LigneStock;
 
@@ -22,7 +21,7 @@ public class GestionProduit extends JFrame{
 	  JTextField descriptionTF = new JTextField("",10);
 	  JPanel nordPanel = new JPanel();
 	  JPanel westPanel = new JPanel();
-	  JPanel centerPanel = new JPanel();
+	  
 	 
 	  JButton ajoutP = new JButton("Ajouter");
 	  JButton suppP = new JButton("Supprimer");
@@ -34,7 +33,7 @@ public class GestionProduit extends JFrame{
 		  this.setTitle("Gestion de produits");
 		  this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		  this.setPreferredSize(new Dimension(750,250));
-		//  this.setResizable(false);
+		  
 		  
 		  depot = d;
 		  ligneStock = depot.listLigneStock;
@@ -97,22 +96,28 @@ public class GestionProduit extends JFrame{
 		  JScrollPane scrollPane = new JScrollPane(table);
 		  table.setDefaultEditor(Object.class,null);
 		  
-		  centerPanel.add(scrollPane);
 		  
-		  scrollPane.setPreferredSize(new Dimension(450,250));
+		  
+		  
 
-	      table.getColumnModel().getColumn(1).setPreferredWidth(20);
-	      table.getColumnModel().getColumn(2).setPreferredWidth(20);
-	      table.getColumnModel().getColumn(3).setPreferredWidth(100);
+		    table.getColumnModel().getColumn(0).setPreferredWidth(55);
+	        table.getColumnModel().getColumn(1).setPreferredWidth(55);
+	        table.getColumnModel().getColumn(2).setPreferredWidth(100);
+	        table.getColumnModel().getColumn(3).setPreferredWidth(100);
+	      //table.getColumnModel().getColumn(1).setPreferredWidth(20);
+	      //table.getColumnModel().getColumn(2).setPreferredWidth(20);
+	      //table.getColumnModel().getColumn(3).setPreferredWidth(100);
 	      
-	      getContentPane().add(centerPanel,BorderLayout.CENTER);
+	      getContentPane().add(scrollPane,BorderLayout.CENTER);
 	      
 	      JTextField[] tabJTF = new JTextField[3];
 	      tabJTF[0] = nomTF;
 	      tabJTF[1] = prixTF;
 	      tabJTF[2] = qteTF;
-
-							//LISTENER
 	      
+	      
+	      this.setVisible(true);
+	      
+							//LISTENER
 	  }
 	  }

@@ -47,5 +47,6 @@ public class Menu extends JFrame{
 		
 		borderContainer.add(gridContainer, BorderLayout.CENTER);
 		
+		this.setVisible(true);
 }
 }
