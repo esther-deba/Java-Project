@@ -64,10 +64,13 @@ public class Menu extends JFrame{
 		
 		
 		MenuListener m_listener = new MenuListener(monMagasin);
-		produits.addActionListener(m_listener);
+								produits.addActionListener(m_listener);
         clients.addActionListener(m_listener);
         vendeurs.addActionListener(m_listener);
         ventes.addActionListener(m_listener);
+        statC.addActionListener(m_listener);
+        statV.addActionListener(m_listener);
+        statG.addActionListener(m_listener);
 		
 		this.setVisible(true);
 		 this.pack();

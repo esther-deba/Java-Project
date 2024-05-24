@@ -34,6 +34,18 @@ public class MenuListener implements ActionListener{
             GestionClient gestionClients = new GestionClient(magasin);
             gestionClients.setVisible(true);
         }
+        if (((JButton)e.getSource()).getText().equals("Statistiques clients")) {
+            StatClient gestionClients = new StatClient(magasin);
+            gestionClients.setVisible(true);
+        }
+        if (((JButton)e.getSource()).getText().equals("Statistiques vendeurs")) {
+            StatVendeur gestionClients = new StatVendeur(magasin);
+            gestionClients.setVisible(true);
+        }
+        if (((JButton)e.getSource()).getText().equals("Statistiques Générales")) {
+            StatGenerale gestionClients = new StatGenerale(magasin);
+            gestionClients.setVisible(true);
+        }
         
 		
 	}

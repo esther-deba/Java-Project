@@ -13,7 +13,7 @@ import Model.Magasin;
 public class StatVendeur extends JFrame {
 	Magasin magasin;
 	
-	JLabel titreVendeur= new JLabel("Statistiques des Vendeurs");
+	JLabel titreVendeur= new JLabel("Statistiques des vendeurs");
 	JComboBox<String> listVendeurs ;
 	JLabel chiffreAffaireVendeur = new JLabel("Chiffre d'affaires:");
     JLabel chiffre = new JLabel();
