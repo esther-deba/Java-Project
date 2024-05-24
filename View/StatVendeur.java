@@ -8,6 +8,7 @@ import java.util.Vector;
 
 import javax.swing.*;
 
+import Controller.StatVendeurListner;
 import Model.Magasin;
 
 public class StatVendeur extends JFrame {
@@ -28,7 +29,7 @@ public class StatVendeur extends JFrame {
 	     getContentPane().add(vendeursCenter);
 	     
 		vendeursCenter.setLayout(new GridBagLayout());
-        vendeursCenter.setPreferredSize(new Dimension(500,300));
+        vendeursCenter.setPreferredSize(new Dimension(700,600));
    
         
       
@@ -95,11 +96,15 @@ public class StatVendeur extends JFrame {
         vendeursCenter.add(nombre,constraints2);
 
 
-
+        StatVendeurListner statV = new StatVendeurListner(magasin, listVendeurs, chiffre ,nombreArticleVendue);
+        listVendeurs.addActionListener(statV );
+       
 		this.setVisible(false);
         this.pack();
 	}
 
 } 
+
+
 
 
