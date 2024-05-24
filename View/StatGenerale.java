@@ -38,7 +38,10 @@ public class StatGenerale extends JFrame{
         
     	generalPanel.setLayout(new GridLayout(3,2,3,2));
         
-        
+    	//on set le text au chiffre d'affair total et au rest
+        nbTArticle.setText(magasin.qteTotalVendue()+"");
+        nbChiffreAffair.setText(magasin.chiffreAffaireTotal()+"");
+        nomArticlePlusVendus.setText(magasin.articleLePlusAcheter().nom);
         
        
         generalPanel.add(article);

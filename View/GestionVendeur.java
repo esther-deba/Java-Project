@@ -8,6 +8,7 @@ import java.util.Vector;
 
 import javax.swing.*;
 
+import Controller.GestionVendeursListener;
 import Model.Vendeur;
 import Model.Magasin;
 
@@ -107,10 +108,12 @@ public class GestionVendeur extends JFrame{
 	        tabJTF[1] = prenomTF;
 	        tabJTF[2] = numTF;
 	        
-	        //LISTERNER
+	        GestionVendeursListener gvl = new GestionVendeursListener(magasin,tabJTF, adresseTF,tableVendeurs);
+	        ajoutP.addActionListener(gvl);
+	        suppP.addActionListener(gvl);
 	        
 	        this.setVisible(true);
-									this.pack();
+			this.pack();
 		  
 	  }
 	  

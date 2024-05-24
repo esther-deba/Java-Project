@@ -5,6 +5,7 @@ import java.util.Vector;
 
 import javax.swing.*;
 
+import Controller.GestionProduitsListener;
 import Model.Depot;
 import Model.LigneStock;
 
@@ -105,9 +106,6 @@ public class GestionProduit extends JFrame{
 	        table.getColumnModel().getColumn(1).setPreferredWidth(55);
 	        table.getColumnModel().getColumn(2).setPreferredWidth(100);
 	        table.getColumnModel().getColumn(3).setPreferredWidth(100);
-	      //table.getColumnModel().getColumn(1).setPreferredWidth(20);
-	      //table.getColumnModel().getColumn(2).setPreferredWidth(20);
-	      //table.getColumnModel().getColumn(3).setPreferredWidth(100);
 	      
 	      getContentPane().add(scrollPane,BorderLayout.CENTER);
 	      
@@ -115,6 +113,10 @@ public class GestionProduit extends JFrame{
 	      tabJTF[0] = nomTF;
 	      tabJTF[1] = prixTF;
 	      tabJTF[2] = qteTF;
+	      
+	      GestionProduitsListener gpl = new GestionProduitsListener(d,tabJTF, descriptionTF,table);
+	      ajoutP.addActionListener(gpl);
+	      suppP.addActionListener(gpl);
 	      
 	      
 	      this.setVisible(true);

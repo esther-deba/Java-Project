@@ -15,6 +15,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
+import Controller.GestionClientsListener;
 import Model.Client;
 import Model.Magasin;
 
@@ -114,7 +115,9 @@ public class GestionClient extends JFrame{
 	        tabJTF[1] = prenomTF;
 	        tabJTF[2] = numTF;
 	        
-	        //LISTERNER
+	        GestionClientsListener gcl = new GestionClientsListener(magasin,tabJTF, adresseTF,tableClients);
+	        ajoutP.addActionListener(gcl);
+	        suppP.addActionListener(gcl);
 	        
 	        this.setVisible(true);
 	        this.pack();

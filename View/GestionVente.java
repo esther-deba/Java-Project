@@ -19,6 +19,7 @@ import javax.swing.SpinnerNumberModel;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
 
+import Controller.GestionVentesListener;
 import Model.Magasin;
 
 public class GestionVente extends JFrame{
@@ -108,6 +109,11 @@ public class GestionVente extends JFrame{
         tableCommandes.setDefaultEditor(Object.class,null);
         
         getContentPane().add(scrollPane,BorderLayout.CENTER);
+        
+        GestionVentesListener gvl = new GestionVentesListener(magasin, listProduits, listVendeurs, listClients,quantite,tableCommandes);
+        ajoutV.addActionListener(gvl);
+        suppV.addActionListener(gvl);
+        validerV.addActionListener(gvl);
         
         //LISTENER
         this.pack();

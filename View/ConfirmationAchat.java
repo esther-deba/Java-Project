@@ -4,6 +4,7 @@ import java.awt.*;
 
 import javax.swing.*;
 
+import Controller.ConfirmationAchatListener;
 import Model.Commande;
 import Model.Magasin;
 
@@ -26,7 +27,7 @@ public class ConfirmationAchat extends JFrame {
 	        magasin = m;
 	        
 	        qst.setHorizontalAlignment(SwingConstants.CENTER);
-	        txt = new JLabel("Mr."+commande.client.nom+", Cela vous coûtera : "+commande.getPrice());
+	        txt = new JLabel("Mme/Mr "+commande.client.nom+", Cela vous coûtera : "+commande.getPrice());
 	        txt.setHorizontalAlignment(SwingConstants.CENTER);
 	        getContentPane().setLayout( new BorderLayout());
 	        affichage.setLayout(new FlowLayout());
@@ -34,9 +35,15 @@ public class ConfirmationAchat extends JFrame {
 	        affichage.add(txt);
 	        getContentPane().add(affichage,BorderLayout.CENTER);
 	        bouttons.setLayout(new FlowLayout());
+	        bouttons.add(bConfirmer);
+	        bouttons.add(bAnnuler);
 	       
 	      
 	        getContentPane().add(bouttons,BorderLayout.SOUTH);
+	        
+	        ConfirmationAchatListener cal = new ConfirmationAchatListener(magasin,commande,this.getContentPane(),this);
+	        bConfirmer.addActionListener(cal);
+	        bAnnuler.addActionListener(cal);
 	        
 	        
 	        

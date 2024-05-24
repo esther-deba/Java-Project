@@ -42,10 +42,12 @@ public class JTableObserver implements Observer {
 	         o.add(ls.article.description);
 	         model.addRow(o);
 		 }
+		  
 		 
-	
+		 
+		 
 	      // le cas où l'observation vient de l'interface GestionVendeurs
-	         if( arg instanceof Vendeur) {
+	        if( arg instanceof Vendeur) {
 	        	 Vendeur vendeur = (Vendeur) arg;
 	        	// parcours le tableau pour voir si le vendeur existe ou pas
 	            // si l'observation vient du boutton supprimer
