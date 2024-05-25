@@ -23,8 +23,10 @@ public class GestionVendeursListener implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        String nomVendeur = tabTF[0].getText();
-        String prenomVendeur = tabTF[1].getText();
+    	//on ajuste le nom et le prenom pour unifier l'ecriture à l'interieur du tableau et faciliter ainsi la suppression 
+    	// par exemple toto c'est pareil que Toto ainsi que TOTO chez l'humain
+        String nomVendeur = tabTF[0].getText().toUpperCase().trim();
+        String prenomVendeur = tabTF[1].getText().toLowerCase().trim();
         String telVendeur = tabTF[2].getText();
         String adresseVendeur = textTF.getText();
 
@@ -38,7 +40,7 @@ public class GestionVendeursListener implements ActionListener {
 
             //vérifie si le vendeur existe déja dans notre magasin
             for (int i = 0; i < monMagasin.listVendeurs.size(); i++) {
-                if (monMagasin.listVendeurs.get(i) == vendeur) {
+                if (monMagasin.listVendeurs.get(i).nom.equals(nomVendeur) && monMagasin.listVendeurs.get(i).prenom.equals(prenomVendeur)) {
                     return;
                 }
             }
@@ -64,7 +66,7 @@ public class GestionVendeursListener implements ActionListener {
                 
         
                 if ( nomVendeur.equals( ((String)nom_row) ) && prenomVendeur.equals( ((String)prenom_row) ) ) {
-                    monMagasin.supprimerVendeur( monMagasin.rechercherVendeur( nomVendeur ));
+                    monMagasin.supprimerVendeur( monMagasin.rechercherVendeur( nomVendeur , prenomVendeur));
                 }
             }
 

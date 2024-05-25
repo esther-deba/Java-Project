@@ -27,8 +27,13 @@ public class GestionClientsListener implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		String nomClient = tabTF[0].getText();
-        String prenomClient = tabTF[1].getText();
+		
+		
+		// on ajuste le nom et le prenom pour unifier l'ecriture à l'interieur du tableau et faciliter ainsi la suppression 
+    	// par exemple "toto" c'est pareil que "Toto" ainsi que "TOTO" chez l'humain
+		// on a aussi ignorer les espaces de debut et de fin de la chaine par exemple "toto  " c'est pareil que "toto"
+        String nomClient = tabTF[0].getText().toUpperCase().trim();
+        String prenomClient = tabTF[1].getText().toLowerCase().trim();
         String telClient = tabTF[2].getText();
         String adresseClient = textTF.getText();
         
@@ -42,7 +47,7 @@ public class GestionClientsListener implements ActionListener{
             
             //vérifie si le client existe déja dans notre magasin
             for (int i = 0; i < monMagasin.listClients.size(); i++) {
-                if (monMagasin.listClients.get(i) == client) {
+                if (monMagasin.listClients.get(i).nom.equals(nomClient) && monMagasin.listClients.get(i).nom.equals(nomClient)) {
                     return;
                 }
             }
@@ -67,7 +72,7 @@ public class GestionClientsListener implements ActionListener{
                 Object nomRow = tableClients.getValueAt(i, 0);
                 Object prenomRow = tableClients.getValueAt(i, 1);
                 if ( nomClient.equals( ((String)nomRow) ) && prenomClient.equals( ((String)prenomRow) ) ) {
-                    monMagasin.supprimerClient( monMagasin.rechercherClient((String)nomRow)) ;
+                    monMagasin.supprimerClient( monMagasin.rechercherClient((String)nomRow , (String)prenomRow)) ;
                 }
             }
         }

@@ -19,7 +19,7 @@ public class GestionVendeur extends JFrame{
 	  JTextField nomTF = new JTextField("",10);
 	  JLabel prenomL = new JLabel("Prenom vendeur    : ");
 	  JTextField prenomTF = new JTextField("",10);
-	  JLabel numL = new JLabel("Tel vendeur             : ");
+	  JLabel numL = new JLabel("Tel vendeur            : ");
 	  JTextField numTF = new JTextField("",10);
 	  JLabel adresseL = new JLabel("Adresse vendeur   : ");
 	  JTextField adresseTF = new JTextField("",10);

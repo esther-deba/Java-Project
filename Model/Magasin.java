@@ -63,6 +63,15 @@ public class Magasin extends Observable{
         }
         return null;
     }
+    
+    public Client rechercherClient(String nom,String prenom){
+        for(int i=0; i<listClients.size();i++){
+            if(listClients.get(i).nom.equals(nom) && listClients.get(i).prenom.equals(prenom)){
+                return listClients.get(i);
+            }
+        }
+        return null;
+    }
 
     public Vendeur rechercherVendeur(String nom){
         for(int i=0; i<listVendeurs.size();i++){
@@ -73,6 +82,15 @@ public class Magasin extends Observable{
         return null;
     }
 
+    public Vendeur rechercherVendeur(String nom, String prenom){
+        for(int i=0; i<listVendeurs.size();i++){
+            if(listVendeurs.get(i).nom.equals(nom) && listVendeurs.get(i).prenom.equals(prenom)){
+                return listVendeurs.get(i);
+            }
+        }
+        return null;
+    }
+    
     public double chiffreAffaireClient(String nom){
         return rechercherClient(nom).chiffreAffaireClient();
     }
