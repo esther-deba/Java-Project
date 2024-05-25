@@ -29,6 +29,8 @@ public class StatGenerale extends JFrame{
     	this.setTitle("Statistiques générales");
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setPreferredSize(new Dimension(500,350));
+        this.setSize(500,350);
+		this.setLocationRelativeTo(null);
         this.setResizable(false);
         getContentPane().setLayout(new BorderLayout());
         titreGen.setHorizontalAlignment(SwingConstants.CENTER);
@@ -38,7 +40,7 @@ public class StatGenerale extends JFrame{
         
     	generalPanel.setLayout(new GridLayout(3,2,3,2));
         
-    	//on set le text au chiffre d'affair total et au rest
+    	//on set le text au chiffre d'affaire total et au reste
         nbTArticle.setText(magasin.qteTotalVendue()+"");
         nbChiffreAffair.setText(magasin.chiffreAffaireTotal()+"");
         nomArticlePlusVendus.setText(magasin.articleLePlusAcheter().nom);

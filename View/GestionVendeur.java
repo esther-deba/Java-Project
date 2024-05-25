@@ -10,6 +10,7 @@ import javax.swing.*;
 
 import Controller.GestionVendeursListener;
 import Model.Vendeur;
+import Model.Client;
 import Model.Magasin;
 
 public class GestionVendeur extends JFrame{
@@ -35,9 +36,13 @@ public class GestionVendeur extends JFrame{
 		  this.setTitle("Gestion de Vendeurs");
 		  this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		  this.setPreferredSize(new Dimension(750,350));
+		  titre.setPreferredSize(new Dimension(250,40));
+		  this.setSize(750,350);
+		  this.setLocationRelativeTo(null);
 		  this.setResizable(false);
 		  
 		  magasin =m;
+		  listeVendeurs = new Vector<Vendeur>(magasin.listVendeurs); 
 		  
 		  getContentPane().setLayout(new BorderLayout());
 		  titre.setHorizontalAlignment(SwingConstants.CENTER);

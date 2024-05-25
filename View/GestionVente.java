@@ -43,6 +43,8 @@ public class GestionVente extends JFrame{
     	this.setTitle("Gestion de ventes");
     	this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setPreferredSize(new Dimension(750,400));
+        this.setSize(750,400);
+		this.setLocationRelativeTo(null);
         magasin = m;
         titre.setHorizontalAlignment(SwingConstants.CENTER);
         

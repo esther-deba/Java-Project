@@ -8,14 +8,14 @@ import javax.swing.JLabel;
 
 import Model.Magasin;
 
-public class StatVendeurListner implements ActionListener {
+public class StatVendeurListener implements ActionListener {
 
     Magasin monMagasin;
     JComboBox listeVendeurs;
     JLabel chiffreAffaire;
     JLabel nombreArtVendue;
     
-    public StatVendeurListner(Magasin monMagasin,JComboBox listeVendeurs,JLabel chiffreAffaire,JLabel nombreArtVendue ) {
+    public StatVendeurListener(Magasin monMagasin,JComboBox listeVendeurs,JLabel chiffreAffaire,JLabel nombreArtVendue ) {
     	this.monMagasin = monMagasin;
     	this.listeVendeurs = listeVendeurs;
     	this.nombreArtVendue = nombreArtVendue;
@@ -29,6 +29,8 @@ public class StatVendeurListner implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == listeVendeurs) {
             if (listeVendeurs.getSelectedItem() == "") {
+            	chiffreAffaire.setText("");
+                nombreArtVendue.setText("");
                 return;
             }
             String chiffreAffair = "";

@@ -18,13 +18,15 @@ public class ConfirmationAchat extends JFrame {
 	    Commande commande;
 	    Magasin magasin;
 	    public ConfirmationAchat(Magasin m,Commande c){
-	        this.setTitle("CONFIRMATION");
-	        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-	        this.setPreferredSize(new Dimension(300,150));
-	        this.setResizable(false);
+	   this.setTitle("CONFIRMATION");
+	   this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+	   this.setPreferredSize(new Dimension(300,150));
+	   this.setSize(300,150);
+				this.setLocationRelativeTo(null);
+	   this.setResizable(false);
 
-	        commande = c;
-	        magasin = m;
+	   commande = c;
+	   magasin = m;
 	        
 	        qst.setHorizontalAlignment(SwingConstants.CENTER);
 	        txt = new JLabel("Mme/Mr "+commande.client.nom+", Cela vous coûtera : "+commande.getPrice());

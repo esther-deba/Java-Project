@@ -1,14 +1,20 @@
 
 import java.time.LocalDate;
 
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+
 import Model.*;
 import View.*;
 
+
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws UnsupportedLookAndFeelException {
 		// TODO Auto-generated method stub
-		Magasin m = new Magasin("nom");
+		UIManager.setLookAndFeel(new NimbusLookAndFeel());
+		Magasin m = new Magasin("ITools");
 		Depot d = new Depot(m,"ad");
 		Menu menu = new Menu(m);
 	    //GestionProduit p = new GestionProduit(d);

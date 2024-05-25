@@ -34,6 +34,8 @@ public class GestionProduit extends JFrame{
 		  this.setTitle("Gestion de produits");
 		  this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		  this.setPreferredSize(new Dimension(750,350));
+		  this.setSize(750,350);
+		  this.setLocationRelativeTo(null);
 		  this.setResizable(false);
 		  
 		  
@@ -98,14 +100,10 @@ public class GestionProduit extends JFrame{
 		  JScrollPane scrollPane = new JScrollPane(table);
 		  table.setDefaultEditor(Object.class,null);
 		  
-		  
-		  
-		  
-
-		    table.getColumnModel().getColumn(0).setPreferredWidth(55);
-	        table.getColumnModel().getColumn(1).setPreferredWidth(55);
-	        table.getColumnModel().getColumn(2).setPreferredWidth(100);
-	        table.getColumnModel().getColumn(3).setPreferredWidth(100);
+		  table.getColumnModel().getColumn(0).setPreferredWidth(55);
+	      table.getColumnModel().getColumn(1).setPreferredWidth(55);
+	      table.getColumnModel().getColumn(2).setPreferredWidth(100);
+	      table.getColumnModel().getColumn(3).setPreferredWidth(100);
 	      
 	      getContentPane().add(scrollPane,BorderLayout.CENTER);
 	      

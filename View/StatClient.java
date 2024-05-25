@@ -14,6 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import Controller.StatClientListener;
 import Model.Magasin;
 
 public class StatClient extends JFrame{
@@ -32,6 +33,8 @@ public class StatClient extends JFrame{
 		this.setTitle("Statistiques des clients");
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         this.setPreferredSize(new Dimension(750,400));
+        this.setSize(750,400);
+		this.setLocationRelativeTo(null);
         this.setResizable(false);
         clientPanel.setLayout(new GridBagLayout());
         GridBagConstraints constraints = new GridBagConstraints();
@@ -107,7 +110,8 @@ public class StatClient extends JFrame{
         
         getContentPane().add(clientPanel);
         
-        
+        StatClientListener statCL = new StatClientListener(magasin,listClient,tableC,nomArticlePlusAchete);
+        listClient.addActionListener(statCL);
         
         this.pack();
         this.setVisible(true);

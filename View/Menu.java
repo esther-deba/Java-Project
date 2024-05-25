@@ -28,6 +28,8 @@ public class Menu extends JFrame{
 		this.setTitle("Le menu de "+m.nom);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.setPreferredSize(new Dimension(600,600));
+		this.setSize(600,600);
+		this.setLocationRelativeTo(null);
 		this.setResizable(false);
         
 		
