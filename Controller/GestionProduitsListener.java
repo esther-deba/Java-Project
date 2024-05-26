@@ -5,6 +5,8 @@ import Model.LigneStock;
 import Model.Depot;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -37,15 +39,8 @@ public class GestionProduitsListener implements ActionListener {
             int qteP = Integer.parseInt(tabJTF[2].getText());
             String descriptionP = descriptionJtf.getText();
 
-            // vérifie si le nom du produit existe déja dans notre stock : si OUI on n'éxecute pas le boutton
-            for (int i = 0; i < depot.listLigneStock.size(); i++) {
-                if (depot.listLigneStock.get(i).article.nom.equals(nomP)) {
-                    return;
-                }
-            }
-
-            // Ajout de la ligneStock dans notre Stock
-            depot.ajouteLigneStock(new LigneStock(qteP, depot, new Article(nomP, prixP, descriptionP)));
+            Article article = new Article(nomP, prixP, descriptionP);
+            depot.ajouteOuRechargeLigneStock(article, qteP);
 
 
             // Vider les champs
@@ -61,12 +56,20 @@ public class GestionProduitsListener implements ActionListener {
             if (tabJTF[0].getText().equals("")) {
                 return;
             }
-            // parcours le JTable à la recherche de la ligne du nom correspendant au nom saisit dans le champs nom
-            // et on supprime cette ligne
-            for (int i = 0; i < tableProduits.getRowCount(); i++) {
-                Object nom_row = tableProduits.getValueAt(i, 0);
-                if (((String) nom_row).equals(tabJTF[0].getText())) {
-                	depot.supprimerLigneStock(depot.rechercherLigneStock( (String) nom_row) );
+         
+            // Récupère le nom de l'article à supprimer
+            String nomProduitASupprimer = tabJTF[0].getText();
+
+            DefaultTableModel model = (DefaultTableModel) tableProduits.getModel();
+
+            // Parcours le JTable à la recherche de la ligne du nom correspondant au nom saisi dans le champs nom
+            for (int i = 0; i < model.getRowCount(); i++) {
+                Object nom_row = model.getValueAt(i, 0);
+                if (nomProduitASupprimer.equals(nom_row)) {
+                    // Supprime la ligne correspondante de la JTable et du modèle sous-jacent
+                    model.removeRow(i);
+                    depot.supprimerLigneStock(depot.rechercherLigneStock(nomProduitASupprimer));
+                    break; // Pas besoin de continuer la boucle après avoir trouvé et supprimé l'article
                 }
             }
 

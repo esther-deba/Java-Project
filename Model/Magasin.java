@@ -147,5 +147,17 @@ public class Magasin extends Observable{
         }
         return articleMax;
     }
+    
+    public void ajouteStock(Depot depot, Article article, int quantite) {
+        LigneStock ligneStockExistante = rechercherLigneStock(article.nom);
+        if (ligneStockExistante != null) {
+            ligneStockExistante.qte += quantite;
+            this.setChanged();
+            this.notifyObservers(ligneStockExistante);
+        } else {
+            depot.ajouteLigneStock(new LigneStock(quantite, depot, article));
+        }
+    }
+
 
 }

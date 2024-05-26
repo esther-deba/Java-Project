@@ -22,30 +22,37 @@ public class JTableObserver implements Observer {
 	@Override
 	public void update(Observable obs, Object arg) {
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
-		 if (obs instanceof Depot) {
-			 LigneStock ls = (LigneStock) arg;
-			// vérifie si la LigneStock envoyé existe déja dans notre table
-	        // si elle existe ca veut dire que le boutton supprimer a été appuyer donc
-	        // on le supprime et on quitte avec return;
-			 for (int i = 0; i < table.getRowCount(); i++) {
-				 Object nom_ligne = table.getValueAt(i, 0);
-	                if (((String) nom_ligne) == ls.article.nom) {
-	                    model.removeRow(i);
-	                    return;
-	                }
-			 }
-			// si elle y est pas ca veut dire qu'on doit l'ajouter :
-			 Vector<Object> o = new Vector<Object>();
-			 o.add(ls.article.nom);
-	         o.add(ls.article.prix);
-	         o.add(ls.qte);
-	         o.add(ls.article.description);
-	         model.addRow(o);
-		 }
+		if (obs instanceof Depot) {
+            LigneStock ls = (LigneStock) arg;
+           
+            if (ls == null) {
+               
+                return;
+            }
+            boolean found = false;
+
+            // Vérifie si la LigneStock existe déjà dans notre table
+            for (int i = 0; i < table.getRowCount(); i++) {
+                Object nomLigne = table.getValueAt(i, 0);
+                if (((String) nomLigne).equals(ls.article.nom)) {
+                    // Si elle existe, met à jour la quantité
+                    table.setValueAt(ls.qte, i, 2);
+                    found = true;
+                    break;
+                }
+            }
+
+            // Si elle n'y est pas, ajoute une nouvelle ligne
+            if (!found) {
+                Vector<Object> o = new Vector<Object>();
+                o.add(ls.article.nom);
+                o.add(ls.article.prix);
+                o.add(ls.qte);
+                o.add(ls.article.description);
+                model.addRow(o);
+            }
+        }
 		  
-		 
-		 
-		 
 	      // le cas où l'observation vient de l'interface GestionVendeurs
 	        if( arg instanceof Vendeur) {
 	        	 Vendeur vendeur = (Vendeur) arg;
@@ -79,7 +86,7 @@ public class JTableObserver implements Observer {
 	             Client client = (Client) arg;
 
 	             // parcours le tableau pour voir si le client existe ou pas
-	             // si l'observation vien du boutton supprimer
+	             // si l'observation vient du boutton supprimer
 	             for (int i = 0; i < table.getRowCount(); i++) {
 	                 Object nom_ligne = table.getValueAt(i, 0);
 	                 Object prenom_ligne = table.getValueAt(i, 1);

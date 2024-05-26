@@ -120,7 +120,7 @@ public class GestionVentesListener implements ActionListener {
 
         if (((JButton) e.getSource()).getText().equals("Valider le panier")) {
             if (listeVendeurs.getSelectedItem() == "" || listeClients.getSelectedItem() == "" || tableLignesCommandes.getRowCount() == 0) {
-                JOptionPane.showMessageDialog(null, "Le panier est vide. Veuillez ajouter des produits au panier avant de valider.", "Erreur", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Veuillez ajouter des produits au panier avant de valider. \nVérifiez que vous avez bien sélectionner le vendeur et le client", "Erreur", JOptionPane.ERROR_MESSAGE);
                 return;
             }
 

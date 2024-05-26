@@ -47,7 +47,7 @@ public class GestionClientsListener implements ActionListener{
             
             //vérifie si le client existe déja dans notre magasin
             for (int i = 0; i < monMagasin.listClients.size(); i++) {
-                if (monMagasin.listClients.get(i).nom.equals(nomClient) && monMagasin.listClients.get(i).nom.equals(nomClient)) {
+                if (monMagasin.listClients.get(i).nom.equals(nomClient) && monMagasin.listClients.get(i).prenom.equals(prenomClient)) {
                     return;
                 }
             }

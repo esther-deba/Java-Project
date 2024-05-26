@@ -9,7 +9,7 @@ import Controller.GestionProduitsListener;
 import Model.Depot;
 import Model.LigneStock;
 
-public class GestionProduit extends JFrame{
+public class GestionProduit extends JFrame {
 	
 	  JLabel titre = new JLabel("Ajouter / Supprimer un produit");
 	  JLabel nomL = new JLabel("Nom produit : ");

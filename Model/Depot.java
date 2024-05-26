@@ -22,14 +22,16 @@ public class Depot extends Observable{
     }
 
     public void supprimerLigneStock(LigneStock ligneStock){
-        listLigneStock.removeIf(element -> element.article.nom == ligneStock.article.nom);
+    	
+    	if (ligneStock != null && ligneStock.article != null) {
+            listLigneStock.removeIf(element -> element != null && element.article != null && element.article.nom.equals(ligneStock.article.nom));}
         this.setChanged();
         this.notifyObservers(ligneStock);
     }
 
-    public LigneStock rechercherLigneStock(String nom){
-        for(int i=0; i<listLigneStock.size();i++){
-            if(listLigneStock.get(i).article.nom == nom ){
+    public LigneStock rechercherLigneStock(String nom) {
+        for (int i = 0; i < listLigneStock.size(); i++) {
+            if (listLigneStock.get(i).article.nom.equals(nom)) {
                 return listLigneStock.get(i);
             }
         }
@@ -45,8 +47,15 @@ public class Depot extends Observable{
         }
         return null;
     }
-
-    public void modifierQuantiteStock(Article art, int q){
-        rechercherLigneStock(art).qte = q;
+    
+    public void ajouteOuRechargeLigneStock(Article article, int quantite) {
+        LigneStock ligneStock = rechercherLigneStock(article.nom);
+        if (ligneStock != null) {
+            ligneStock.qte += quantite;
+            this.setChanged();
+            this.notifyObservers(ligneStock);
+        } else {
+            ajouteLigneStock(new LigneStock(quantite, this, article));
+        }
     }
 }
